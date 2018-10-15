@@ -32,11 +32,9 @@ module ZombieApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
-      end
-    end
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'localhost:3000',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
   end
 end
