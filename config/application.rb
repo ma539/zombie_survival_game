@@ -19,15 +19,7 @@ Bundler.require(*Rails.groups)
 
 module ZombieApi
   class Application < Rails::Application
-    config.middleware.insert_before 0, Rack::Corsdo
-
-      allow do
-
-        origins '*'
-
-        resource '*', :headers=>:any, :methods=>[:get, :post, :options]
-
-      end
+    
 
     end
     # Initialize configuration defaults for originally generated Rails version.
